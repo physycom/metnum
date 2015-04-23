@@ -1,2 +1,1 @@
-# metnum
-Exercises for Numerical Models and Methods Course @UniBO
+###Please fork it and solve the exercises in your account
