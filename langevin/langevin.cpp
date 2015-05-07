@@ -1,9 +1,12 @@
+//2012, 2013, 2014, 2015 Francesco Rossi, Stefano Sinigardi, BSD
+
 #include <complex>
 #include <cstdio>
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
+#include <ctime>
 //#define HARDCODED
 // scommentare il precedente define per usare parametri codificati direttamente nel sorgente
 
@@ -33,10 +36,10 @@ void evo(double * x, const double dt, const double gamma, const double epsilon)
 int main(void)
 {
 	double * particelle;
-	double gamma, epsilon, dt, x0, p0;
+	double gamma, epsilon, dt, x0, p0, t;
 	int nparticelle, nsteps, nout;
 	std::ofstream evostream("evo.txt");
-	srand (time(NULL));   
+	srand ((unsigned int) time(NULL));   
 
 #ifndef HARDCODED
 	std::cout << "Equazione di Langevin" << std::endl;

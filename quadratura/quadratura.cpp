@@ -1,4 +1,7 @@
-// 2012 Francesco Rossi, BSD
+//2012, 2013, 2014, 2015 Francesco Rossi, Stefano Sinigardi, BSD
+
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <complex>
 #include <cstdio>
 #include <cmath>
