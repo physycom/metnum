@@ -29,8 +29,8 @@ std::vector<double> euler(double dt, int nsteps)
 	
 	for(int n=0; n<nsteps; n++)
 	{
-		X0[n+1] =X0[n] + df0_dt(X0[n],X1[n])*dt; // DA FARE: completare utilizzando il metodo di eulero, usando la derivata df0_dt(X[n])
-		X1[n+1] =X1[n] + df1_dt(X0[n],X1[n])*dt; // DA FARE: completare utilizzando il metodo di eulero, usando la derivata df1_dt(X[n])
+		X0[n+1] =X0[n] + df0_dt(X0[n],X1[n])*dt; // FATTO: completare utilizzando il metodo di eulero, usando la derivata df0_dt(X[n])
+		X1[n+1] =X1[n] + df1_dt(X0[n],X1[n])*dt; // FATTO: completare utilizzando il metodo di eulero, usando la derivata df1_dt(X[n])
 	
 		norm[n+1] = sqrt(X0[n+1]*X0[n+1]+X1[n+1]*X1[n+1]); //distanza da (0,0)
 	}
