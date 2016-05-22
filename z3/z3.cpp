@@ -5,6 +5,8 @@
 #include <complex>
 #include <cstdio>
 #include <cmath>
+#include <fstream>
+#include <stdlib.h>
 
 //si compila con g++ z3.cpp
 //esegue con ./a.out
@@ -19,7 +21,7 @@ num f(const num & c) //f(x)
 
 num fd(const num & c) //sua derivata
 {
-	return 0; //DA fare scrivere
+	return 3.0*c*c; //DA fare scrivere - FATTO
 }
 
 int main(void)
@@ -37,6 +39,8 @@ int main(void)
 			X[i+j*N] = num(x,y); //inizializzazione griglia di coordinate
 		}
 	
+	//num* X0 = X;
+	
 	for(int step=0; step<16; step++) //iterazioni del metodo di newton con partenza dai punti della griglia di numeri complessi X 
 	{
 		for(int j=0; j<N; j++) //su griglia
@@ -44,7 +48,7 @@ int main(void)
 			for(int i=0; i<N; i++)
 			{
 				num & x = X[i+j*N];
-				x = x; //DA FARE: implementare il metodo di newton
+				x = x - f(x)/fd(x); //DA FARE: implementare il metodo di newton - FATTO
 			}
 		}
 	}
@@ -57,10 +61,33 @@ int main(void)
 		}
 	}
 	
-	FILE* o = fopen("out.bin","wb"); //dump su file, per visualizzarlo: python 
-	fwrite(R, sizeof(double)*N*N, 1, o);
-	fclose(o);
+	//FILE* o = fopen("out.bin","wb"); //dump su file, per visualizzarlo: python 
+	//fwrite(R, sizeof(double)*N*N, 1, o);
+	//fclose(o);
+	
+	std::ofstream output;	
+	output.open("out.txt");
+	
+
+	for(int j=0; j<N; j++) //su griglia
+	{
+		for(int i=0; i<N; i++)
+		{
+			//output << X[i+j*N].real() << "\t"; 
+			output << R[i+j*N] << "\t"; 
+		}
+		
+		output << std::endl;
+	}
+	
+	output.close();
+	
 	
 	delete X;
 	delete R;
+	
+	//system("gnuplot plot_z3.plt");
+	//system("xdg-open /home/alessandro/metnum/z3/newton.png");
+	
+	return 0;
 }
