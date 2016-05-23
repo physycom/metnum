@@ -66,7 +66,6 @@ int main(void)
 			simpson(0.0, 1.0, N)-truth
 			);
 	}
-	
-	
+		
 	fclose(f);
 }
