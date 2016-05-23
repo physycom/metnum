@@ -1,4 +1,4 @@
-//2012, 2013, 2014, 2015 Francesco Rossi, Stefano Sinigardi, BSD
+//2012, 2013, 2014, 2015, 2016 Francesco Rossi, Stefano Sinigardi, BSD
 
 #include <complex>
 #include <cstdio>

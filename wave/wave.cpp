@@ -1,4 +1,4 @@
-//2012, 2013, 2014, 2015 Francesco Rossi, Stefano Sinigardi, BSD
+//2012, 2013, 2014, 2015, 2016 Francesco Rossi, Stefano Sinigardi, BSD
 
 #define _CRT_SECURE_NO_WARNINGS
 
@@ -53,7 +53,7 @@ double go(int N)
 	
 	//
 	std::cout << L/dt << "\n";
-	int Nt = L/dt*2;
+	int Nt = ((int)(L/dt))*2;
 	int t=0;
 	for(t=0; t<Nt+1; t++) //TODO sistemare il numero di passi per il caso staggered
 	{
