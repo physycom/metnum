@@ -33,3 +33,5 @@ Release/
 *.exe
 *.out
 *.app
+*.opendb
+*.db
