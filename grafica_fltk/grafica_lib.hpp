@@ -4,6 +4,10 @@
 #include <vector>
 #include <string>
 
+#ifdef __CYGWIN__
+#include <windef.h>
+#endif
+
 // FLTK Standard include
 #include <FL/Fl.H>
 #include <FL/gl.h>

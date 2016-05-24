@@ -2,6 +2,11 @@
 
 #define _USE_MATH_DEFINES  // for math constants
 
+#ifndef _XOPEN_SOURCE
+#define _XOPEN_SOURCE 500
+#endif
+
+
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS  // MSVC warnings shut upper
 #define _SCL_SECURE_NO_WARNINGS  // MSVC warnings shut upper
