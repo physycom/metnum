@@ -76,6 +76,7 @@ Fl_Slider *slider;
 Fl_Text_Buffer *text_content;
 Fl_Text_Display *text_box;
 Fl_Button *button;
+Fl_Button *play;
 Fl_Box *box;
 
 
@@ -117,6 +118,16 @@ void button_cb(Fl_Widget *w) {
   return;
 }
 
+
+// Play callback
+// 1 - update label
+// 2 - start/stop drawing loop
+// 3 - redraw
+int step_counter = 0;
+void play_cb(Fl_Widget *w) {
+    
+}
+
 // Layout parameters
 #define SPACING        25
 #define FRAME_WIDTH    600
@@ -155,6 +166,10 @@ void CreateMyWindow() {
   // Color button
   button = new Fl_Button(slider->x(), slider->y() + slider->h() + SPACING, 2*SLIDER_HEIGHT, SLIDER_HEIGHT, "Red");
   button->callback(button_cb);
+
+  // Play button
+  play = new Fl_Button(button->x(), button->y() + button->h() + SPACING, 2 * SLIDER_HEIGHT, SLIDER_HEIGHT, "Play");
+  play->callback(play_cb);
 
   // Start the graphics
   form->end();
