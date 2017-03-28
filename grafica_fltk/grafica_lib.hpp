@@ -8,10 +8,15 @@
 #include <windef.h>
 #endif
 
+#ifdef __APPLE__
+#include <OpenGL/glu.h>
+#else
+#include <GL/glu.h>
+#endif
+
 // FLTK Standard include
 #include <FL/Fl.H>
 #include <FL/gl.h>
-#include <GL/glu.h>
 #include <FL/Fl_Window.H>
 
 // FLTK Widget include

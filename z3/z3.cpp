@@ -61,6 +61,6 @@ int main(void)
   fwrite(R, sizeof(double)*N*N, 1, o);
   fclose(o);
 
-  delete X;
-  delete R;
+  delete[] X;
+  delete[] R;
 }
