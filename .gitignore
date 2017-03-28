@@ -37,3 +37,6 @@ Release/
 *.png
 *.db
 *.txt
+.vs/
+bin/
+obj/
