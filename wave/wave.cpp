@@ -1,6 +1,8 @@
 //2012-2016 Francesco Rossi, Stefano Sinigardi, BSD
 
-#define _CRT_SECURE_NO_WARNINGS
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
 
 #include <complex>
 #include <cstdio>
@@ -9,10 +11,6 @@
 #include <cstdlib>
 #include <fstream>
 #include <vector>
-
-#ifndef M_PI
-#define M_PI 3.14159
-#endif
 
 typedef double* field;
 

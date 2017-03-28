@@ -4,8 +4,14 @@
 #include <vector>
 #include <string>
 
-#ifdef __CYGWIN__
-#include <windef.h>
+
+#ifdef __CYGWIN__  
+#include <windef.h> 
+#endif
+#ifdef _WIN32
+#include <windows.h>
+#pragma comment(lib, "opengl32.lib")
+#pragma comment(lib, "glu32.lib")
 #endif
 
 #ifdef __APPLE__
@@ -13,18 +19,17 @@
 #else
 #include <GL/glu.h>
 #endif
-
-// FLTK Standard include
 #include <FL/Fl.H>
 #include <FL/gl.h>
-#include <FL/Fl_Window.H>
-
-// FLTK Widget include
-#include <FL/Fl_Gl_Window.H>
-#include <FL/Fl_Box.H>
 #include <FL/Fl_Slider.H>
+#include <FL/fl_draw.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Box.H>
+#include <FL/Fl_Value_Slider.H>
 #include <FL/Fl_Text_Display.H>
 #include <FL/Fl_Button.H>
+#include <FL/Fl_Gl_Window.H>
+
 
 using namespace std;
 

@@ -1,7 +1,5 @@
 //2012-2016 Francesco Rossi, Stefano Sinigardi, BSD
 
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <complex>
 #include <cstdio>
 #include <cmath>
