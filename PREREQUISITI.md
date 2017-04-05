@@ -1,7 +1,7 @@
 ## Ubuntu (incluso Ubuntu On Windows)
 Aprire un terminale bash e digitare  
 ```
-$  sudo apt-get install g++ gnuplot cmake make libfltk-dev libboost-all-dev git
+$  sudo apt-get install g++ gnuplot cmake make libfltk1.3-dev libboost-all-dev git
 ```
 
 
