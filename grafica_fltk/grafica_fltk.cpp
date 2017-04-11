@@ -1,16 +1,15 @@
 //2016 Alessandro Fabbri, Stefano Sinigardi, BSD
 
-#ifndef _GNU_SOURCE
-#define _GNU_SOURCE
-#endif
-
-// STL C++ include
 #include <iostream>              
 #include <vector>
 #include <cmath>
 
-// Fltk wrapper include
 #include "grafica_lib.hpp"
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846264338327950
+#endif
+
 
 using namespace std;
 

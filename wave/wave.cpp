@@ -1,9 +1,5 @@
 //2012-2016 Francesco Rossi, Stefano Sinigardi, BSD
 
-#ifndef _GNU_SOURCE
-#define _GNU_SOURCE
-#endif
-
 #include <complex>
 #include <cstdio>
 #include <cmath>
@@ -11,6 +7,11 @@
 #include <cstdlib>
 #include <fstream>
 #include <vector>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846264338327950
+#endif
+
 
 typedef double* field;
 

@@ -1,6 +1,5 @@
 //2016 Alessandro Fabbri, Stefano Sinigardi, BSD
 
-// C++ STL include
 #include <vector>
 #include <string>
 
@@ -29,6 +28,10 @@
 #include <FL/Fl_Text_Display.H>
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Gl_Window.H>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846264338327950
+#endif
 
 
 using namespace std;

@@ -29,12 +29,11 @@ Release/
 *.a
 *.lib
 
-# Executables
-*.opendb
-*.db
+# VS folders
 .vs/
-bin/
-obj/
 .vscode/
+
+# Executables
+bin/
 build/
 
