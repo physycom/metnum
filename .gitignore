@@ -30,13 +30,8 @@ Release/
 *.lib
 
 # Executables
-*.exe
-*.out
-*.app
 *.opendb
-*.png
 *.db
-*.txt
 .vs/
 bin/
 obj/
