@@ -17,7 +17,7 @@ Sono invece graditi suggerimenti, correzioni ed integrazioni al materiale già p
 
 Buon lavoro!
 
-Link alle dispense del corso:
-[prima parte](http://www.physycom.unibo.it/Metodi_numerici.pdf)
-[seconda parte](http://www.physycom.unibo.it/Metodi_numerici_II.pdf)
-[terza parte](http://www.physycom.unibo.it/Metodi_numerici_III.pdf)
+Link alle dispense del corso:  
+[prima parte](http://www.physycom.unibo.it/Metodi_numerici.pdf)  
+[seconda parte](http://www.physycom.unibo.it/Metodi_numerici_II.pdf)  
+[terza parte](http://www.physycom.unibo.it/Metodi_numerici_III.pdf)  
