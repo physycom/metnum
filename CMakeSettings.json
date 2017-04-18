@@ -11,7 +11,7 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "${env.HOME}\\Codice\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.WORKSPACE}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
         }
       ]
     },
@@ -25,35 +25,7 @@
       "variables": [
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "${env.HOME}\\Codice\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-        }
-      ]
-    },
-    {
-      "buildCommandArgs": "-m -v:minimal",
-      "buildRoot": "${env.LOCALAPPDATA}\\CMakeBuild\\${workspaceHash}\\build\\${name}",
-      "cmakeCommandArgs": "",
-      "configurationType": "Debug",
-      "generator": "Visual Studio 15 2017 Win64",
-      "name": "x64-Debug",
-      "variables": [
-        {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "${env.HOME}\\Codice\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
-        }
-      ]
-    },
-    {
-      "buildCommandArgs": "-m -v:minimal",
-      "buildRoot": "${env.LOCALAPPDATA}\\CMakeBuild\\${workspaceHash}\\build\\${name}",
-      "cmakeCommandArgs": "",
-      "configurationType": "Release",
-      "generator": "Visual Studio 15 2017 Win64",
-      "name": "x64-Release",
-      "variables": [
-        {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "${env.HOME}\\Codice\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          "value": "${env.WORKSPACE}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
         }
       ]
     }

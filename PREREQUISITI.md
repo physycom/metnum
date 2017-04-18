@@ -23,24 +23,30 @@ $  brew install gnuplot cmake make fltk boost git
 ```
 PS \>  cinst -y gnuplot git 
 ```
-4) Aprire Powershell in modalità utente standard, andare in una cartella dove lavoreremo (che chiameremo `Codice`) e digitare
+4) Definire una cartella di lavoro, che chiameremo WORKSPACE d'ora in poi: una cartella "Codice" nella nostra home, oppure una cartella "code" sul desktop, creandola nel modo preferito (mkdir da Powershell, oppure direttamente da explorer col mouse). Standardizzeremo il funzionamento dei nostri script indipendentemente dalla posizione di questa cartella definendo a tal proposito una variabile d'ambiente. Aprire pertanto una Powershell in modalità utente standard e digitare
 ```
+PS \>             rundll32 sysdm.cpl,EditEnvironmentVariables
+```
+5) Nella schermata che si apre, nella sezione superiore, creare una nuova variabile con nome WORKSPACE e come valore il path completo della nostra cartella di lavoro precedentemente stabilita
+6) Chiudere la Powershell e riaprirla, sempre in modalità utente standard
+```
+PS \>             cd $env:WORKSPACE
 PS Codice>        git clone https://github.com/Microsoft/vcpkg.git
 PS Codice>        cd vcpkg
-PS Codice\vcpkg>  .\scripts\bootstrap.ps1 
+PS Codice\vcpkg>  .\bootstrap-vcpkg.bat 
 ```
-5) Aprire Powershell in modalità amministratore, andare nella cartella `Codice` e quindi digitare
+7) Aprire Powershell in modalità amministratore e quindi digitare
 ```
+PS \>             cd $env:WORKSPACE
 PS Codice>        cd vcpkg
 PS Codice\vcpkg>  .\vcpkg integrate install
 ```
-6) Aprire Powershell in modalità utente standard, andare nella cartella `Codice` e quindi digitare
+8) Aprire Powershell in modalità utente standard e quindi digitare
 ```
+PS \>             cd $env:WORKSPACE
 PS Codice>        cd vcpkg
 PS Codice\vcpkg>  .\vcpkg install fltk boost 
-Accettare l'installazione di CMake 3.8 rc1
 ```
-7) Aggiungere la versione portable di CMake 3.8 rc1 appena scaricata da vcpkg al path dell'utente, così da poterlo utilizzare globalmente nel terminale
-
+nb: per completare quest'ultimo passaggio bisogna accettare l'installazione di "CMake portable"
 
 
