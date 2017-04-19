@@ -1,45 +1,26 @@
 //2016 Alessandro Fabbri, Stefano Sinigardi, BSD
 
-#include <vector>
-#include <string>
+#include "slider_fltk.h"
 
 
-#ifdef __CYGWIN__  
-#include <windef.h> 
-#endif
-#ifdef _WIN32
-#include <windows.h>
-#pragma comment(lib, "opengl32.lib")
-#pragma comment(lib, "glu32.lib")
-#endif
-
-#ifdef __APPLE__
-#include <OpenGL/glu.h>
-#else
-#include <GL/glu.h>
-#endif
-#include <FL/Fl.H>
-#include <FL/gl.h>
-#include <FL/Fl_Slider.H>
-#include <FL/fl_draw.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Box.H>
-#include <FL/Fl_Value_Slider.H>
-#include <FL/Fl_Text_Display.H>
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Gl_Window.H>
-
-#ifndef M_PI
-#define M_PI 3.14159265358979323846264338327950
-#endif
-
-
-using namespace std;
 
 // Global scope variables
 double frame_xmin, frame_xmax, frame_ymin, frame_ymax;
-bool is_blue = true;
-vector<vector <double>> vvx, vvy;
+bool is_blue;
+vector<vector<double>> vvx, vvy;
+int step_counter;
+
+// FLTK widget pointers
+Fl_Window *form;
+Frame *frame;
+Fl_Slider *slider;
+Fl_Text_Buffer *text_content;
+Fl_Text_Display *text_box;
+Fl_Button *button;
+Fl_Button *play;
+Fl_Box *box;
+
+
 
 // frame definition
 class Frame : public Fl_Gl_Window {
@@ -52,11 +33,11 @@ public:
 void Frame::draw() {
   if (!valid()) {
 
-    glClearColor(1.0, 1.0, 1.0, 1);							                   // Set background color
+    glClearColor(1.0, 1.0, 1.0, 1);                                // Set background color
     glViewport(0, 0, w(), h());                                    // Make our viewport the whole window
-    glMatrixMode(GL_PROJECTION);							                     // Select The Projection Matrix
-    glLoadIdentity();										                           // Reset The Projection Matrix
-    gluOrtho2D(frame_xmin, frame_xmax, frame_ymin, frame_ymax);		 // Set the graphic window boundaries
+    glMatrixMode(GL_PROJECTION);                                   // Select The Projection Matrix
+    glLoadIdentity();                                              // Reset The Projection Matrix
+    gluOrtho2D(frame_xmin, frame_xmax, frame_ymin, frame_ymax);    // Set the graphic window boundaries
     glMatrixMode(GL_MODELVIEW);                                    // Select The Modelview Matrix
     glLoadIdentity();                                              // Reset The Modelview Matrix
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);            // Clear The Screen And The Depth Buffer
@@ -84,17 +65,6 @@ void Frame::draw() {
     glPopMatrix();
   } //-------------------------------------------------
 }
-
-
-// FLTK widget pointers
-Fl_Window *form;
-Frame *frame;
-Fl_Slider *slider;
-Fl_Text_Buffer *text_content;
-Fl_Text_Display *text_box;
-Fl_Button *button;
-Fl_Button *play;
-Fl_Box *box;
 
 
 // Slider callback
@@ -140,17 +110,9 @@ void button_cb(Fl_Widget *w) {
 // 1 - update label
 // 2 - start/stop drawing loop
 // 3 - redraw
-int step_counter = 0;
 void play_cb(Fl_Widget *w) {
-    
 }
 
-// Layout parameters
-#define SPACING        25
-#define FRAME_WIDTH    600
-#define FRAME_HEIGHT   600
-#define SLIDER_WIDTH   350
-#define SLIDER_HEIGHT  40
 
 // Window layout creation function
 void CreateMyWindow() {
@@ -194,6 +156,46 @@ void CreateMyWindow() {
   frame->show();
 }
 
+
 void idle_cb(void*) {
   frame->redraw();
 }
+
+
+int main(int argc, char **argv) {
+  is_blue = true;
+  step_counter = 0;
+  double xmin = 0;
+  double xmax = 2 * M_PI;
+  int Nstep = 1000;
+  double dx = (xmax-xmin)/(Nstep-1);
+  std::vector<double> x, y1, y2, y3;
+
+  for (int i = 0; i < Nstep; i++) {
+    double xi = xmin + i*dx;
+    x.push_back(xi);
+    y1.push_back(sin(xi));
+    y2.push_back(cos(xi));
+    y3.push_back(0.0);
+  }
+
+  vvx.push_back(x); 
+  vvy.push_back(y1);
+  vvx.push_back(x);
+  vvy.push_back(y2);
+  vvx.push_back(x);
+  vvy.push_back(y3);
+
+  frame_xmin = -0.2;
+  frame_xmax = 2*M_PI+0.2;
+  frame_ymin = -1.2;
+  frame_ymax = 1.2;
+
+  // Start graphic
+  CreateMyWindow();
+  Fl::add_idle(idle_cb, 0);
+  Fl::run();
+
+  return 0;
+}
+
