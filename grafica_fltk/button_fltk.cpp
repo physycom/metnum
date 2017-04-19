@@ -1,5 +1,6 @@
 // http://www3.telus.net/public/robark/
 
+#include <string>
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>   // useremo anche un bottone!
@@ -23,7 +24,7 @@ void button_callback(Fl_Widget * o, void *) {
 
 
 int main() {
-  const std::string titolo_finestra = "Finestra";
+  const string titolo_finestra = "Finestra";
 
   // La creazione dei widget in questo esempio avviene con i costruttori.
   Fl_Window finestra(300, 200, titolo_finestra.c_str());
