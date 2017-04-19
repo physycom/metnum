@@ -50,14 +50,14 @@ void Frame::draw() {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   //----------------- DRAW AXIS ---------------------
-  glColor3d(0. , 0., 0.);
+  glColor3d(0., 0., 0.);
   glBegin(GL_LINE_STRIP); glVertex2d(0, frame_ymin); glVertex2d(0, frame_ymax); glEnd();
   glBegin(GL_LINE_STRIP); glVertex2d(frame_xmin, 0); glVertex2d(frame_xmax, 0); glEnd();
   //-------------------------------------------------
 
   //----------------- DRAW FUNCTION -----------------
-  for (size_t i = 0; i < vvx.size(); i++){
-    glColor3d(1.-is_blue, 0., is_blue);
+  for (size_t i = 0; i < vvx.size(); i++) {
+    glColor3d(1. - is_blue, 0., is_blue);
     glPushMatrix();
     glBegin(GL_LINE_STRIP);
     for (size_t j = 0; j < vvy[i].size(); j++) glVertex2d(vvx[i][j], vvy[i][j]);
@@ -71,9 +71,9 @@ void Frame::draw() {
 // 1 - update the displayed value
 // 2 - recalculate y0 values vector
 // 3 - redraw the plot
-void slider_cb(Fl_Widget *w){
+void slider_cb(Fl_Widget *w) {
   text_content->text(std::to_string(slider->value()).c_str());
-  
+
   text_box->buffer(text_content);
 
   double omega = slider->value();
@@ -101,7 +101,7 @@ void button_cb(Fl_Widget *w) {
   }
 
   frame->redraw();
-  
+
   return;
 }
 
@@ -126,24 +126,24 @@ void CreateMyWindow() {
   frame = new Frame(SPACING, SPACING, FRAME_WIDTH, FRAME_HEIGHT, 0);
 
   // Box
-  box = new Fl_Box(FL_NO_BOX, frame->x() + frame->w() + SPACING, SPACING, 2*SLIDER_HEIGHT, SLIDER_HEIGHT, "Plotting \t\t y = sin( k x ) \t\t y = cos( x )");
+  box = new Fl_Box(FL_NO_BOX, frame->x() + frame->w() + SPACING, SPACING, 2 * SLIDER_HEIGHT, SLIDER_HEIGHT, "Plotting \t\t y = sin( k x ) \t\t y = cos( x )");
   box->align(FL_ALIGN_RIGHT);
 
   // Create the slider widget 
   slider = new Fl_Slider(box->x(), box->y() + box->h() + SPACING, SLIDER_WIDTH, SLIDER_HEIGHT, "Frequency slider");
   slider->type((uchar)FL_HORIZONTAL);
-  slider->bounds(1.,10.);
+  slider->bounds(1., 10.);
   slider->value(1.0);
   slider->callback(slider_cb);
 
   // Create a textbox to display slider value
   text_content = new Fl_Text_Buffer();
-  text_box = new Fl_Text_Display(slider->x() + slider->w() + SPACING, slider->y(), 2*SLIDER_HEIGHT, SLIDER_HEIGHT, "Frequency value");
+  text_box = new Fl_Text_Display(slider->x() + slider->w() + SPACING, slider->y(), 2 * SLIDER_HEIGHT, SLIDER_HEIGHT, "Frequency value");
   text_content->text(std::to_string(slider->value()).c_str());
   text_box->buffer(text_content);
 
   // Color button
-  button = new Fl_Button(slider->x(), slider->y() + slider->h() + SPACING, 2*SLIDER_HEIGHT, SLIDER_HEIGHT, "Red");
+  button = new Fl_Button(slider->x(), slider->y() + slider->h() + SPACING, 2 * SLIDER_HEIGHT, SLIDER_HEIGHT, "Red");
   button->callback(button_cb);
 
   // Play button
@@ -168,7 +168,7 @@ int main(int argc, char **argv) {
   double xmin = 0;
   double xmax = 2 * M_PI;
   int Nstep = 1000;
-  double dx = (xmax-xmin)/(Nstep-1);
+  double dx = (xmax - xmin) / (Nstep - 1);
   std::vector<double> x, y1, y2, y3;
 
   for (int i = 0; i < Nstep; i++) {
@@ -179,7 +179,7 @@ int main(int argc, char **argv) {
     y3.push_back(0.0);
   }
 
-  vvx.push_back(x); 
+  vvx.push_back(x);
   vvy.push_back(y1);
   vvx.push_back(x);
   vvy.push_back(y2);
@@ -187,7 +187,7 @@ int main(int argc, char **argv) {
   vvy.push_back(y3);
 
   frame_xmin = -0.2;
-  frame_xmax = 2*M_PI+0.2;
+  frame_xmax = 2 * M_PI + 0.2;
   frame_ymin = -1.2;
   frame_ymax = 1.2;
 

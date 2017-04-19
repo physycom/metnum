@@ -14,16 +14,16 @@
 int main(int argc, char **argv) {
   const std::string hw_s = "Hello, World!";
   // Creazione oggetti base (widgets), sempre identificati come Fl_nomewidget
-  // La creazione avviene *solo* con il metodo *new*
+  // La creazione avviene con il metodo *new* oppure con i costruttori. Vediamo ora *new*, nel prossimo esempio i costruttori
   // In FLTK il punto in alto a sinistra della finestra e` l'origine (x=0, y=0) e le unita` sono in pixel
   // Fl_Widget(x, y, width, height, label)
   // La label deve essere in uno static storage (es: const char*, oppure definita "a mano" hardcoded nel codice) perche' FLTK non ne fa una copia, ne prende solo il puntatore.
-  Fl_Window *window = new Fl_Window(340,180);              // creiamo una finestra di dimensioni 340x180
-  Fl_Box *box = new Fl_Box(20,40,300,100,hw_s.c_str());    // creiamo un riquadro, dando il punto iniziale e le dimensioni, contenente la stringa "Hello, World!". Esso appartiene alla finestra "window" automaticamente
+  Fl_Window *window = new Fl_Window(340, 180);                 // creiamo una finestra di dimensioni 340x180
+  Fl_Box *box = new Fl_Box(20, 40, 300, 100, hw_s.c_str());    // creiamo un riquadro, dando il punto iniziale e le dimensioni, contenente la stringa "Hello, World!". Esso appartiene alla finestra "window" automaticamente
 
   // Impostazione stile
   box->box(FL_UP_BOX);                  // tipo di box (uscente dalla finestra)
-  box->labelfont(FL_BOLD+FL_ITALIC);    // font (grassetto+corsivo)
+  box->labelfont(FL_BOLD + FL_ITALIC);  // font (grassetto+corsivo)
   box->labelsize(36);                   // dimensione font
   box->labeltype(FL_SHADOW_LABEL);      // stile testo (ombreggiato)
 
