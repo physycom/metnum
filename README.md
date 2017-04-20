@@ -11,13 +11,20 @@
 
 In questo repository verrà mantenuto il codice utilizzato durante le esercitazioni di calcolo numerico svolte a lezione.
 
-È possibile procedere allo svolgimento degli esercizi (non obbligatori) in molti modi, tra i quali spicca per comodità quello di fare un fork di questo repository nel proprio account personale.  
-NON VERRANNO ACCETTATE PULL-REQUEST CONTENENTI SOLUZIONI AGLI ESERCIZI.  
+Per compilare i codici, il modo più veloce (e funzionante su qualsiasi sistema), dopo aver soddisfatto i [prerequisiti](PREREQUISITI.md) è:
+```
+cd metnum
+mkdir build
+cmake ..
+cmake --build . --target install
+```
+I binari si troveranno quindi in metnum/bin.
+
+
+nb: NON VERRANNO ACCETTATE PULL-REQUEST CONTENENTI SOLUZIONI AGLI ESERCIZI.  
 Sono invece graditi suggerimenti, correzioni ed integrazioni al materiale già presente.
 
 Buon lavoro!
 
-Link alle dispense del corso:  
-[prima parte](http://www.physycom.unibo.it/Metodi_numerici.pdf)  
-[seconda parte](http://www.physycom.unibo.it/Metodi_numerici_II.pdf)  
-[terza parte](http://www.physycom.unibo.it/Metodi_numerici_III.pdf)  
+[Link al materiale didattico del corso](http://campus.unibo.it/cgi/lista?annoAccademico=2016&idComponenteAF=384426&codiceDocente=13747)
+
