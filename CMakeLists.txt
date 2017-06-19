@@ -3,10 +3,21 @@ project(metnum)
 set(CMAKE_CXX_STANDARD 11)
 
 if(MSVC)
+  set(CompilerFlags
+        CMAKE_CXX_FLAGS
+        CMAKE_CXX_FLAGS_DEBUG
+        CMAKE_CXX_FLAGS_RELEASE
+        CMAKE_C_FLAGS
+        CMAKE_C_FLAGS_DEBUG
+        CMAKE_C_FLAGS_RELEASE
+        )
+  foreach(CompilerFlag ${CompilerFlags})
+    string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
+  endforeach()
   add_definitions(-D_SCL_SECURE_NO_WARNINGS)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:LIBCMT")
   set(FLTK_SKIP_FLUID TRUE)
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:MSVCRT")
   set(Boost_USE_STATIC_LIBS ON)
   set(Boost_USE_STATIC_RUNTIME ON)
 endif()
@@ -35,5 +46,4 @@ target_link_libraries(events_fltk ${FLTK_LIBRARIES} ${OPENGL_gl_LIBRARY} ${OPENG
 target_link_libraries(mouse_fltk ${FLTK_LIBRARIES} ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY})
 target_link_libraries(slider_fltk ${FLTK_LIBRARIES} ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY})
 
-install (TARGETS hello_fltk button_fltk events_fltk mouse_fltk slider_fltk harm langevin quadratura simplettici wave z3 
-	DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+install (TARGETS hello_fltk button_fltk events_fltk mouse_fltk slider_fltk harm langevin quadratura simplettici wave z3 DESTINATION ${CMAKE_SOURCE_DIR}/bin)

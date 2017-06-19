@@ -61,7 +61,7 @@ PS Codice\vcpkg>  .\vcpkg integrate install
 ```
 PS \>             cd $env:WORKSPACE
 PS Codice>        cd vcpkg
-PS Codice\vcpkg>  .\vcpkg install fltk boost freeglut opengl
+PS Codice\vcpkg>  .\vcpkg install fltk fltk:x86-windows-static boost boost:x86-windows-static freeglut freeglut:x86-windows-static opengl opengl:x86-windows-static
 ```
 nb: per completare quest'ultimo passaggio bisogna accettare l'installazione di "CMake portable"
 
