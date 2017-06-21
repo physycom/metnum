@@ -28,8 +28,7 @@ find_package(Boost REQUIRED)
 find_package(FLTK REQUIRED)
 find_package(OpenGL REQUIRED)
 
-
-include_directories(${Boost_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS} ${PROJECT_BINARY_DIR}) 
+include_directories(${FLTK_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS} ${PROJECT_BINARY_DIR}) 
 add_executable(hello_fltk ${CMAKE_SOURCE_DIR}/grafica_fltk/hello_fltk.cpp)
 add_executable(button_fltk ${CMAKE_SOURCE_DIR}/grafica_fltk/button_fltk.cpp)
 add_executable(events_fltk ${CMAKE_SOURCE_DIR}/grafica_fltk/events_fltk.cpp)
