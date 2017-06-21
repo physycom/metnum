@@ -67,7 +67,7 @@ PS \>             cd $env:WORKSPACE
 PS Codice>        cd vcpkg
 PS Codice\vcpkg>  .\vcpkg install fltk fltk:x86-windows-static boost boost:x86-windows-static freeglut freeglut:x86-windows-static opengl opengl:x86-windows-static
 ```
-10) Aprire un editor di testo qualsiasi (anche notepad.exe va bene!) e incollare il seguente testo:
+10) Aprire un editor di testo qualsiasi (anche notepad.exe va bene!) e incollare il seguente testo:   
 **Visual Studio 2015, Windows 32 bit**
 ```
 Import-Module Pscx
