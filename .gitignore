@@ -34,6 +34,6 @@ Release/
 .vscode/
 
 # Executables
-bin/
-build/
+[Bb]in/
+[Bb]uild*/
 

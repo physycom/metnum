@@ -3,7 +3,7 @@
   "configurations": [
     {
       "buildCommandArgs": "-m -v:minimal",
-      "buildRoot": "${env.LOCALAPPDATA}\\CMakeBuild\\${workspaceHash}\\build\\${name}",
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
       "cmakeCommandArgs": "",
       "configurationType": "Debug",
       "generator": "Visual Studio 15 2017",
@@ -17,7 +17,7 @@
     },
     {
       "buildCommandArgs": "-m -v:minimal",
-      "buildRoot": "${env.LOCALAPPDATA}\\CMakeBuild\\${workspaceHash}\\build\\${name}",
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
       "cmakeCommandArgs": "",
       "configurationType": "Release",
       "generator": "Visual Studio 15 2017",
