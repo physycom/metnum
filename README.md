@@ -8,18 +8,12 @@
 </div>
 </a>
 
+Compilazione linux/macOS: [![Build Status](https://travis-ci.org/physycom/metnum.svg?branch=master)](https://travis-ci.org/physycom/metnum)   
+Compilazione cygwin/Windows: [![Build status](https://ci.appveyor.com/api/projects/status/7p3ap2ky43vt34qn?svg=true)](https://ci.appveyor.com/project/cenit/metnum)
 
 In questo repository verrà mantenuto il codice utilizzato durante le esercitazioni di calcolo numerico svolte a lezione.
 
-Per compilare i codici, il modo più veloce (e funzionante su qualsiasi sistema), dopo aver soddisfatto i [prerequisiti](PREREQUISITI.md) è:
-```
-cd metnum
-mkdir build
-cmake ..
-cmake --build . --target install
-```
-I binari si troveranno quindi in metnum/bin.
-
+Per compilare i codici si consiglia di seguire il setup descritto a [questo link](https://github.com/physycom/sysconfig/blob/master/README.md).
 
 nb: NON VERRANNO ACCETTATE PULL-REQUEST CONTENENTI SOLUZIONI AGLI ESERCIZI.  
 Sono invece graditi suggerimenti, correzioni ed integrazioni al materiale già presente.

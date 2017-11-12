@@ -1,0 +1,42 @@
+language: cpp
+
+os:
+  - linux
+  - osx
+
+compiler:
+    - gcc
+    - clang
+
+addons:
+  apt:
+    packages:
+    - libboost-all-dev
+    - libfltk1.3-dev
+    - freeglut3-dev
+    - libgl1-mesa-dev
+    - libglu1-mesa-dev
+    - libxinerama-dev
+    - libjpeg-dev
+    - libxi-dev
+    - libxmu-dev
+
+matrix:
+    exclude:
+    - os: osx
+      compiler: gcc
+    - os: linux
+      compiler: clang
+
+before_install:
+  # OSX Setup
+  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then brew update                                                                               ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then brew install fltk freeglut                                                                ;fi
+
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget --no-check-certificate http://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz   ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then tar -xzf cmake-3.8.0-Linux-x86_64.tar.gz                                                  ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export PATH=$PWD/cmake-3.8.0-Linux-x86_64/bin:$PATH                                       ;fi
+
+script:
+  - mkdir build && cd build && cmake .. && cmake --build .

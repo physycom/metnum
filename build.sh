@@ -1,5 +1,8 @@
-mkdir build
+#!/bin/bash
+
+mkdir -p build
 cd build
 cmake .. 
-cmake --build . --target install
+#cmake .. -DINTERNET_DISABLED:BOOL=TRUE
+cmake --build . 
 cd ..

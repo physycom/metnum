@@ -1,0 +1,48 @@
+image: Visual Studio 2017
+clone_folder: c:\projects\metnum
+configuration: Release
+
+environment:
+    matrix:
+    - platform: cygwin64
+      COMPILER: cygwin
+      CYGWIN_NOWINPATH: yes
+    - platform: Win32
+      COMPILER: vs
+      LINKING: static
+    - platform: Win32
+      COMPILER: vs
+      LINKING: dynamic
+
+
+install:
+  - if [%COMPILER%]==[vs] cinst cmake
+  - if [%COMPILER%]==[vs] SET "PATH=C:\Program Files\CMake\bin;%PATH%"
+  - if [%COMPILER%]==[vs] call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x86
+  - if [%COMPILER%]==[cygwin] SET "PATH=C:\cygwin64\bin;C:\cygwin64\usr\bin;%PATH%"
+  - if [%COMPILER%]==[cygwin] SET PATH=%PATH:C:\Program Files\Git\usr\bin;=%
+  - git submodule -q update --init --recursive
+  - cd ..
+  - mkdir C:\projects\deps
+  - cd C:\projects\deps
+  - mkdir cygwin-downloads
+  - ps: if($env:COMPILER -eq "cygwin") { Invoke-WebRequest https://cygwin.com/setup-x86_64.exe -OutFile C:\projects\deps\cygwin-setup.exe }
+  - if [%COMPILER%]==[cygwin] C:\projects\deps\cygwin-setup.exe --quiet-mode --no-shortcuts --no-startmenu --no-desktop --upgrade-also --root C:\cygwin64 --local-package-dir C:\projects\deps\cygwin-downloads --packages gcc-g++,libboost-devel,cmake,libfltk-devel,libglut-devel,libGL-devel,libGLU-devel,fluid,libjpeg-devel,libXi-devel,libXmu-devel
+  - cd ..
+  - git clone https://github.com/Microsoft/vcpkg
+  - cd vcpkg
+  - if [%COMPILER%]==[vs] powershell -exec bypass scripts\bootstrap.ps1
+  - if [%COMPILER%]==[vs] vcpkg integrate install
+  - if [%COMPILER%]==[vs] if [%LINKING%]==[dynamic] vcpkg install fltk boost freeglut opengl
+  - if [%COMPILER%]==[vs] if [%LINKING%]==[static] vcpkg install fltk:x86-windows-static boost:x86-windows-static freeglut:x86-windows-static opengl:x86-windows-static
+  - cd ..
+  - cd C:\projects\metnum
+
+build_script:
+  - mkdir build
+  - cd build
+  - if [%COMPILER%]==[cygwin] cmake .. -G "Unix Makefiles"
+  - if [%COMPILER%]==[cygwin] cmake --build .
+  - if [%COMPILER%]==[vs] if [%LINKING%]==[dynamic] cmake .. -G "Visual Studio 15 2017" "-DCMAKE_TOOLCHAIN_FILE=C:\projects\vcpkg\scripts\buildsystems\vcpkg.cmake" "-DCMAKE_BUILD_TYPE=Release"
+  - if [%COMPILER%]==[vs] if [%LINKING%]==[static]  cmake .. -G "Visual Studio 15 2017" "-DCMAKE_TOOLCHAIN_FILE=C:\projects\vcpkg\scripts\buildsystems\vcpkg.cmake" "-DVCPKG_TARGET_TRIPLET=x86-windows-static" "-DCMAKE_BUILD_TYPE=Release"
+  - if [%COMPILER%]==[vs] cmake --build . --config Release

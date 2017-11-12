@@ -4,7 +4,6 @@
     {
       "buildCommandArgs": "-m -v:minimal",
       "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
-      "cmakeCommandArgs": "",
       "configurationType": "Debug",
       "generator": "Visual Studio 15 2017",
       "name": "x86-Debug",
@@ -12,13 +11,16 @@
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
           "value": "${env.WORKSPACE}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+        },
+        {
+          "name": "VCPKG_TARGET_TRIPLET",
+          "value": "x86-windows-static"
         }
       ]
     },
     {
       "buildCommandArgs": "-m -v:minimal",
       "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
-      "cmakeCommandArgs": "",
       "configurationType": "Release",
       "generator": "Visual Studio 15 2017",
       "name": "x86-Release",
@@ -26,6 +28,10 @@
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
           "value": "${env.WORKSPACE}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+        },
+        {
+          "name": "VCPKG_TARGET_TRIPLET",
+          "value": "x86-windows-static"
         }
       ]
     }
