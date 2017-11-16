@@ -13,7 +13,7 @@ Compilazione cygwin/Windows: [![Build status](https://ci.appveyor.com/api/projec
 
 In questo repository verrà mantenuto il codice utilizzato durante le esercitazioni di calcolo numerico svolte a lezione.
 
-Per compilare i codici si consiglia di seguire il setup descritto a [questo link](https://github.com/physycom/sysconfig/blob/master/README.md).
+Per compilare i codici è necessario seguire il setup descritto a [questo link](https://github.com/physycom/sysconfig/blob/master/README.md).
 
 nb: NON VERRANNO ACCETTATE PULL-REQUEST CONTENENTI SOLUZIONI AGLI ESERCIZI.  
 Sono invece graditi suggerimenti, correzioni ed integrazioni al materiale già presente.
@@ -21,4 +21,5 @@ Sono invece graditi suggerimenti, correzioni ed integrazioni al materiale già p
 Buon lavoro!
 
 [Link al materiale didattico del corso](http://campus.unibo.it/cgi/lista?annoAccademico=2016&idComponenteAF=384426&codiceDocente=13747)
+[Link al Programma del corso](https://github.com/physycom/metnum/blob/master/PROGRAMMA.md)
 

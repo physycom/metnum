@@ -1,39 +1,68 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-*.sdf
-*.suo
-*.opensdf
 
-packages/
-Debug/
-Release/
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# VS folders
+#VS Code
 .vs/
 .vscode/
 
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Mac desktop service store files
+.DS_Store
+
+# Object files
+*.slo
+*.lo
+*.o
+*.out
+*.ko
+*.obj
+*.elf
+*.exe
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lai
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
 # Executables
-[Bb]in/
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+
+# QtCreator
+*.autosave
+*.config
+*.creator
+*.creator.user
+*.opendb
+*.iobj
+*.ipdb
+*.db
+
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
 [Bb]uild*/
+bld/
+[Bb]in/
+[Oo]bj/
 

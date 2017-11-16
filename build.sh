@@ -2,7 +2,6 @@
 
 mkdir -p build
 cd build
-cmake .. 
-#cmake .. -DINTERNET_DISABLED:BOOL=TRUE
+cmake .. "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${WORKSPACE}\sysconfig\cmake\physycom_toolchain.cmake" 
 cmake --build . 
 cd ..
