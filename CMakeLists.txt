@@ -2,8 +2,11 @@ cmake_minimum_required (VERSION 3.1)
 project (metnum)
 set(CMAKE_CXX_STANDARD 11)
 
-if(VCPKG_CHAINLOAD_TOOLCHAIN_FILE)
-    include("${VCPKG_CHAINLOAD_TOOLCHAIN_FILE}")
+if (EXISTS "$ENV{WORKSPACE}/sysconfig/cmake/physycom_config.cmake")
+   message(STATUS "Enabling physycom settings")
+   include("$ENV{WORKSPACE}/sysconfig/cmake/physycom_config.cmake")
+else()
+   message(STATUS "Unable to find physycom settings file")
 endif()
 
 find_package(OpenGL REQUIRED)
@@ -36,3 +39,19 @@ target_link_libraries(events_fltk ${CMAKE_DL_LIBS} )
 target_link_libraries(mouse_fltk  ${CMAKE_DL_LIBS} )
 target_link_libraries(slider_fltk ${CMAKE_DL_LIBS} )
 endif()
+
+install (TARGETS
+    hello_fltk
+    button_fltk
+    events_fltk
+    mouse_fltk
+    slider_fltk
+    harm
+    langevin
+    quadratura
+    simplettici
+    wave
+    z3
+    DESTINATION
+    ${CMAKE_SOURCE_DIR}/bin/
+)
