@@ -13,6 +13,7 @@ addons:
     packages:
     - libboost-all-dev
     - libfltk1.3-dev
+    - fluid
     - freeglut3-dev
     - libgl1-mesa-dev
     - libglu1-mesa-dev
