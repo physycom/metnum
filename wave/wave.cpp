@@ -65,7 +65,7 @@ double go(int N)
     {
       for (int i = 1; i < N - 1; i++) //passo avanzamento E
       {
-        //TODO implementare le differenze finite 
+        //TODO implementare le differenze finite
         //E[i] = E[i] - (B[i+...] - B[i-...])*(...); //TODO
       }
       //TODO implementare periodic boundary conditions E
@@ -109,10 +109,9 @@ double go(int N)
   delete E0;
   return delta;
 }
+
 int main(void)
 {
-
-
   int N = 128;
   FILE* out = fopen("scaling.txt", "w");
 
@@ -129,5 +128,6 @@ int main(void)
   //
   std::stringstream ss;
   ss << "python plot_wave.py " << N << "\n";
-  system(ss.str().c_str());
+  int syscall_result = system(ss.str().c_str());
+  return syscall_result;
 }

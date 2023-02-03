@@ -1,0 +1,12 @@
+{
+  "name": "metnum",
+  "version": "1.0.0",
+  "homepage": "https://github.com/physycom/metnum",
+  "description": "A collection of ready to use, very fast and easy to learn template libraries",
+  "dependencies":
+  [
+    "fltk",
+    "freeglut",
+    "opengl"
+  ]
+}
