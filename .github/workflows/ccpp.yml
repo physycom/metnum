@@ -76,6 +76,13 @@ jobs:
       run: |
         brew install --cask xquartz
         sudo /opt/X11/libexec/privileged_startx || true
+        PATH=$PATH:/opt/X11/bin
+        Xvfb $1 &
+        XVFB_PID=$!
+        echo Launched Xvfb $1 as process $XVFB_PID >&2
+        trap "echo killing process $XVFB_PID... >&2; kill $XVFB_PID" 0
+        export DISPLAY=$1
+        sleep 2
       working-directory: .
 
     - uses: lukka/get-cmake@latest
