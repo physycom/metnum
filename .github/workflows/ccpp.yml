@@ -73,7 +73,10 @@ jobs:
       run: brew install libomp yasm nasm
 
     - name: Install XQuartz
-      run: brew install --cask xquartz
+      run: |
+        brew install --cask xquartz
+        sudo /opt/X11/libexec/privileged_startx || true
+      working-directory: .
 
     - uses: lukka/get-cmake@latest
 
